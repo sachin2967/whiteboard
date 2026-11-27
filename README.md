@@ -1,70 +1,65 @@
-# Getting Started with Create React App
+# Browser Whiteboard
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A browser-based drawing surface built with React and the HTML Canvas API. It supports freehand sketching, geometric shapes, annotations, basic editing history and PNG export.
 
-## Available Scripts
+## Features
 
-In the project directory, you can run:
+- Freehand brush using `perfect-freehand`
+- Line, rectangle, circle and arrow tools
+- Eraser and text annotation tools
+- Configurable stroke color, shape fill and drawing/text size
+- Undo and redo controls, with `Ctrl+Z` and `Ctrl+Y` keyboard shortcuts
+- Export the current canvas as a PNG image
 
-### `npm start`
+## Tech stack
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- React 18 and Create React App
+- HTML Canvas 2D API
+- Rough.js for hand-drawn geometric shapes
+- perfect-freehand for smooth brush strokes
+- React Context and reducers for board/tool state
+- CSS Modules and React Icons
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Run locally
 
-### `npm test`
+Requires Node.js and npm.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+```bash
+git clone https://github.com/sachin2967/whiteboard.git
+cd whiteboard
+npm install
+npm start
+```
 
-### `npm run build`
+The app runs at [http://localhost:3000](http://localhost:3000).
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Create a production build with:
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+```bash
+npm run build
+```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## How it is organized
 
-### `npm run eject`
+```text
+src/
+  components/
+    Board/       Canvas rendering and mouse interaction
+    Toolbar/     Tool selection, undo/redo and PNG export
+    Toolbox/     Color, fill and size controls
+  store/
+    BoardProvider.js
+    ToolboxProvider.js
+  utils/
+    element.js   Shape generation and hit testing
+    math.js      Geometry helpers
+  constants.js   Tool and action definitions
+```
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+## Scope and limitations
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+This is a client-side drawing application. Board state is held in browser memory; there is no backend, multi-user collaboration, automatic cloud save or project persistence. Export the board before refreshing or closing the page. The current canvas event handlers are mouse-based, so touch and stylus behavior has not been verified.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+## License
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+No license is currently specified. All rights remain with the copyright holder unless a license is added.
