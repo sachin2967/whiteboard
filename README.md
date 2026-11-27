@@ -2,6 +2,8 @@
 
 A browser-based drawing surface built with React and the HTML Canvas API. It supports freehand sketching, geometric shapes, annotations, basic editing history and PNG export.
 
+**Live demo:** https://whiteboard-mocha-alpha.vercel.app/
+
 ## Features
 
 - Freehand brush using `perfect-freehand`
